@@ -1,0 +1,115 @@
+
+<odoo>
+    <data>
+<!--    <record id="employee_view_tree" model="ir.ui.view">-->
+<!--        <field name="name">ev_employee.tree</field>-->
+<!--        <field name="model">ev_employee</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree string="Ev_employee">-->
+<!--                <field name="name"/>-->
+<!--                <field name="age"/>-->
+<!--                <field name="gender"/>-->
+<!--                <field name="day_of_birth"/>-->
+<!--                <field name="country"/>-->
+<!--                <field name="height"/>-->
+<!--                <field name="weight"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--    <record id="employee_view_form" model="ir.ui.view">-->
+<!--        <field name="name">ev_employee.form</field>-->
+<!--        <field name="model">ev_employee</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Ev_employee">-->
+<!--                <sheet>-->
+<!--                    <field name="image" widget="image" class="oe_avatar" />-->
+<!--                    <div class="oe_title">-->
+<!--                        <label for="name"></label>-->
+<!--                        <h1>-->
+<!--                        <field name="name"></field>-->
+<!--                        </h1>-->
+<!--                    </div>-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="age"></field>-->
+<!--                            <field name="gender"></field>-->
+<!--                            <field name="day_of_birth"></field>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="country"></field>-->
+<!--                            <field name="height"></field>-->
+<!--                            <field name="weight"></field>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--	<record id="employee_action" model="ir.actions.act_window">-->
+<!--		<field name="name">Ev_employee</field>-->
+<!--		<field name="type">ir.actions.act_window</field>-->
+<!--		<field name="res_model">ev_employee</field>-->
+<!--	</record>-->
+
+<!--	<menuitem id="menu_ev_employee" name="Ev_employee"  />-->
+<!--	<menuitem id="menu_employee_fields" name="employee_fields" parent="menu_ev_employee" action='employee_action'   />-->
+
+
+         <!-- explicit list view definition -->
+
+<!--    <record model="ir.ui.view" id="ev_employee.list">-->
+<!--      <field name="name">Ev_employee list</field>-->
+<!--      <field name="model">ev_employee</field>-->
+<!--      <field name="arch" type="xml">-->
+<!--        <tree>-->
+<!--                <field name="name"/>-->
+<!--                <field name="age"/>-->
+<!--                <field name="day_of_birth"/>-->
+<!--        </tree>-->
+<!--      </field>-->
+<!--    </record>-->
+
+
+<!--    &lt;!&ndash; actions opening views on models &ndash;&gt;-->
+
+<!--    <record model="ir.actions.act_window" id="ev_employee.action_window">-->
+<!--      <field name="name">Ev_employee window</field>-->
+<!--      <field name="res_model">ev_employee</field>-->
+<!--      <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+
+<!--    &lt;!&ndash; server action to the one above &ndash;&gt;-->
+
+<!--    <record model="ir.actions.server" id="ev_employee.action_server">-->
+<!--      <field name="name">Ev_employee server</field>-->
+<!--      <field name="model_id" ref="model_ev_employee"/>-->
+<!--      <field name="state">code</field>-->
+<!--      <field name="code">-->
+<!--        action = {-->
+<!--          "type": "ir.actions.act_window",-->
+<!--          "view_mode": "tree,form",-->
+<!--          "res_model": model._name,-->
+<!--        }-->
+<!--      </field>-->
+<!--    </record>-->
+
+
+<!--    &lt;!&ndash; Top menu item &ndash;&gt;-->
+
+<!--    <menuitem name="ev_employee" id="ev_employee.menu_root"/>-->
+
+<!--    &lt;!&ndash; menu categories &ndash;&gt;-->
+
+<!--    <menuitem name="Menu 1" id="ev_employee.menu_1" parent="ev_employee.menu_root"/>-->
+<!--    <menuitem name="Menu 2" id="ev_employee.menu_2" parent="ev_employee.menu_root"/>-->
+
+<!--    &lt;!&ndash; actions &ndash;&gt;-->
+
+<!--    <menuitem name="List" id="ev_employee.menu_1_list" parent="ev_employee.menu_1"-->
+<!--              action="ev_employee.action_window"/>-->
+<!--    <menuitem name="Server to list" id="ev_employee" parent="ev_employee.menu_2"-->
+<!--              action="ev_employee.action_server"/>-->
+
+    </data>
+</odoo>

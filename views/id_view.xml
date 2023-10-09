@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="id_card_action" model="ir.actions.act_window">
+        <field name="name">ID Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">id.card</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="create_first_id">
+                Create your first ID
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Kanban View-->
+    <record id="view_id_kanban" model="ir.ui.view">
+        <field name="name">id.card.view.kanban</field>
+        <field name="model">id.card</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id" />
+                <field name="image" widget="image" class="oe_avatar"/>
+                <field name="name"/>
+<!--                <field name="surname"/>-->
+                <field name="id_no"/>
+                <field name="sex" />
+                <field name='department_id'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="image" widget="image"/>
+                                    </li>
+                                    <li>
+                                        <field name="name" />
+                                    </li>
+                                    <li>
+                                        <field name="id_no" />
+                                    </li>
+                                    <li>
+                                        <field name="sex"/>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View-->
+    <record id="view_id_form" model="ir.ui.view">
+        <field name="name">id.card.form</field>
+        <field name="model">id.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <field name="name"/>
+                        <field name="sex"/>
+                        <field name="age"/>
+                    </group>
+                    <group>
+                        <field name="id_no"/>
+                        <field name="birth_date"/>
+                        <field name="birth_place"/>
+                    </group>
+                    <group>
+                        <field name="department_id" />
+                        <field name="features_ids" widget='many2many_tags'/>
+                    </group>
+
+                </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+
+                    </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- tree view-->
+    <record id="view_id_tree" model="ir.ui.view">
+        <field name="name">id.card.tree</field>
+        <field name="model">id.card</field>
+        <field name="arch" type="xml">
+            <tree><!-- tree view -->
+                <field name="name"/>
+                <field name="sex"/>
+                <field name="age"/>
+                <field name="department_id"/>
+                <field name="id_no"/>
+                <field name="birth_date"/>
+                <field name="birth_place"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- custom search filter-->
+    <record id="view_id_search" model="ir.ui.view">
+        <field name="name">id.card.search</field>
+        <field name="model">id.card</field>
+        <field name="arch" type="xml">
+            <search string="IDs">
+                <field name="name" />
+                <field name="id_no" />
+
+                <separator/>
+                <filter name="male" string="Male" domain="[('sex', '=', 'male')]"/>
+                <filter name="female" string="Female" domain="[('sex', '=', 'female')]"/>
+                <group expand="1" string="Group By">
+                    <filter name="sex" string="Gender" context="{'group_by': 'sex'}" />
+                    <filter name="age" string="Age" context="{'group_by': 'age'}" />
+                    <filter name="name" string="Patient Name" context="{'group_by': 'name'}" />
+                    <filter name="birth_place" string="Birth Place" context="{'group_by': 'birth_place'}" />
+                    <filter name="birth_date" string="Birth Date" context="{'group_by': 'birth_date'}" />
+
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem
+        id="id_data_root"
+        name="ID List"
+        sequence="10"/>
+
+    <menuitem
+        id="id_data_list"
+        name="IDs"
+        parent='id_data_root'
+        action="id_card_action"
+        sequence="10"/>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="id_features_action" model="ir.actions.act_window">
+        <field name="name">Features</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">id.features</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="create_features">
+                Create your Feature
+            </p>
+        </field>
+    </record>
+
+    <!-- Form View-->
+    <record id="view_features_form" model="ir.ui.view">
+        <field name="name">id.features.form</field>
+        <field name="model">id.features</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="features"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- tree view-->
+    <record id="view_features_tree" model="ir.ui.view">
+        <field name="name">id.features.tree</field>
+        <field name="model">id.features</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="features"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <menuitem
+        id="id_features"
+        name="Features"
+        parent='id_data_root'
+        action="id_features_action"
+        sequence="10"/>
+</odoo>
